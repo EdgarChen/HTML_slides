@@ -403,8 +403,8 @@ BODY {
 			}
 		.full .slide:after {
 			position:absolute;
-			bottom:65px;
-			right:130px;
+			bottom:30px;
+			right:40px;
 			color:rgba(62,62,62,0.6);
 			line-height:1;
 			}
@@ -426,22 +426,18 @@ BODY {
 /* Progress */
 .full .progress {
 	position:absolute;
-	right:118px;
-	bottom:49px;
-	left:118px;
-	border-radius:7px;
-	border:2px solid rgba(62,62,62, 0.4);
+	right:0;
+	bottom:0;
+	left:0;
 	}
-	.full .progress DIV {
+	.full .progress div {
+		position:absolute;
+		left:0;
+		bottom:0;
 		width:0;
-		height:10px;
-		border-radius:5px;
-		background:rgba(62, 62, 62, 0.4);
-		-webkit-transition:width 0.2s linear;
-		-moz-transition:width 0.2s linear;
-		-ms-transition:width 0.2s linear;
-		-o-transition:width 0.2s linear;
-		transition:width 0.2s linear;
+		height:8px;
+		background:#555;
+		@include transition(width 0.2s linear);
 		}
 .full .progress-off {
 	z-index:1;
