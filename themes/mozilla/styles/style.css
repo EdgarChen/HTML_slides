@@ -215,6 +215,7 @@ BODY {
 	left:50%;
 	z-index:-1;
 	height:100%;
+	background:url(../images/bg-sandstone-2.png);
 	-webkit-transform:translateX(-50%);
 	-moz-transform:translateX(-50%);
 	-ms-transform:translateX(-50%);
@@ -229,6 +230,7 @@ BODY {
 	left:0;
 	width:100%;
 	height:auto;
+	background:url(../images/bg-sandstone-2.png);
 	-webkit-transform:translateY(-50%);
 	-moz-transform:translateY(-50%);
 	-ms-transform:translateY(-50%);
