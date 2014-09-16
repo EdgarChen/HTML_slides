@@ -194,6 +194,8 @@
 					history.pushState(null, null, url.pathname + getSlideHash(currentSlideNumber));
 					enterListMode();
 					scrollToSlide(currentSlideNumber);
+				} else {
+					url.hash = "";
 				}
 			break;
 
