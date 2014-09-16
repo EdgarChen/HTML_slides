@@ -87,11 +87,6 @@
 	}
 
 	function goToSlide(slideNumber) {
-		if (slideNumber === -1) {
-			url.hash = "";
-			return;
-		}
-
 		url.hash = getSlideHash(slideNumber);
 
 		if (!isListMode()) {
@@ -200,7 +195,7 @@
 					enterListMode();
 					scrollToSlide(currentSlideNumber);
 				} else {
-					goToSlide(-1);
+					url.hash = "";
 				}
 			break;
 
