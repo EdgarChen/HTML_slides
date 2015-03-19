@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <title>NetworkManager slides</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1274, user-scalable=no">
+    <link rel="stylesheet" href="../../themes/mozilla/styles/style.css">
+    <!--
+        To apply styles to the certain slides
+        use slide ID to get needed elements
+        -->
+    <style>
+        #Cover h2 {
+            color:#FFF;
+            text-align:center;
+            font-size:40px;
+            }
+        #FitToWidth h2,
+        #FitToHeight h2 {
+            color:#fff;
+            text-align:center;
+            }
+        /* Lists */
+        .slide ol,
+        .slide ul {
+            margin:0 0 45px;
+            counter-reset:list;
+            font-size: 18px
+            }
+            .slide ul ul {
+                margin:0 0 0 38px;
+                }
+            .slide ol ul,
+            .slide ol ol,
+            .slide ul ol {
+                margin:0 0 0 38px;
+                }
+            .slide ol > li:before,
+            .slide ul > li:before {
+                position:absolute;
+                margin-left:-110px;
+                width:100px;
+                color:rgb(62,62,62);
+                text-align:right;
+                }
+            .slide ul > li:before {
+                content:'\2022'; /* bull */
+                line-height:1;
+                font-size:34px;
+                }
+            .slide ol > li:before {
+                counter-increment:list;
+                content:counter(list)'.';
+                }
+            .slide ol ul > li:before,
+            .slide ul ul > li:before {
+                content:'\2023'; /* bull */
+                line-height:1;
+                font-size:34px;
+                }
+            </style>
+</head>
+<body class="list">
+    <header class="caption">
+        <h1>2015 Q1</h1>
+        <p>Edgar Chen &#60;echen@mozilla.com&#62;, 2015/03/20</p>
+    </header>
+
+<!--
+
+    Simply copy the whole block for each slide you want.
+    Special slides get extra classes. Each slide needs an ID
+    to allow for bookmarking and target jumping.
+
+    Images, videos and SVG objects are automatically centred.
+
+    If you add a "cover" class images are taking over the whole
+    screen resized to height. Add a "w" class to resize to width.
+
+ -->
+    <div class="slide" id="IccManager_1"><div>
+        <section>
+            <header>
+                <h2>IccManager#1</h2>
+            </header>
+            <ul>
+                <li>Fix:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1087847">Bug 1087847</a>: mozIccManager reports 0 SIMs, but mozMobileConnection does</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1098210">Bug 1098210</a>: Use enums for mvnoType</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1112471">Bug 1112471</a>: Provide the availability of FDN to Gaia</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1129946">Bug 1129946</a>: Add result code for "command performed successfully, but requested icon could not be displayed"</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1123624">Bug 1123624</a>: Having a consistent proactive command format in both system message and dom event</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1087968">Bug 1087968</a>: Rewrite icc marionette tests with Promise</li>
+                </ul></li>
+
+                <li>Gaia:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1114955">Bug 1114955</a>: User can't connect to cell data on v2.2 after turning it on from FTU, Settings or notification bar</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="IccManager_2"><div>
+        <section>
+            <header>
+                <h2>IccManager#2</h2>
+            </header>
+            <ul>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1114935">Bug 1114935</a>: Refactor IccInfo/IccCardState/IccCardCardLock/matchMvno with IPDL.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1113476">Bug 1113476</a>: support nsck/pck for SIM Lock types.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=952025">Bug 952025</a>: rename EF_TYPE_TRANSPARENT| LINEAR_FIXED|CYCLIC</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1132007">Bug 1132007</a>: Initialise _iccChannelCalback in RilContentHelper.js</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1081789">Bug 1081789</a>: Redefine nsIIccProvider.idl interface for support SE/SIM access</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1111990">Bug 1111990</a>: Should only access EF_FDN when FDN service is available</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1101366">Bug 1101366</a>: Contacts can't be imported from SIM card to device when EF_PBR contains more than one record</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1119136">Bug 1119136</a>: [Contacts][dolphin][FFOS7715 v2.1] Contacts can't be imported from some special SIM cards to device</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1122376">Bug 1122376</a>: Support SIM contact dialling number exceed 20 digits</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="IccManager_3"><div>
+        <section>
+            <header>
+                <h2>IccManager#3</h2>
+            </header>
+            <ul>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1119206">Bug 1119206</a>: [Woodduck] Refresh SPN not ok</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1106449">Bug 1106449</a>: [Woodduck] The idle text was removed after REFRESH-FCN</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1117609">Bug 1117609</a>: Support of "Additional Info on Result" in STK Terminal Response</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1117658">Bug 1117658</a>: USAT case 27.22.4.2.8 GET INKEY SEQ 8.1 GET INKEY，No Duration field in the TR</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1123204">Bug 1123204</a>: [Woodduck] Text String:length is not ok when execute get input->27.22.4.3.1/8</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1126198">Bug 1126198</a>: Wrong attribute of "presentationType" was defined in nsIStkSetUpMenuCmd</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1122330">Bug 1122330</a>: [Woodduck] Get input executed without text string tag</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1126687">Bug 1126687</a>: [Woodduck] Setup Event Envelope structure is incorrect</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Data_Network_1"><div>
+        <section>
+            <header>
+                <h2>Data/Network#1</h2>
+            </header>
+            <ul>
+                <li>Fix:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1106656">Bug 1106656</a>: Javascript error in network manager when setting up DUN data call</li>
+                </ul></li>
+
+                <li>Ongoing:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1118675">Bug 1118675</a>: Improve NetworkService debugging message</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1123328">Bug 1123328</a>: [NetworkService] Unify the dhcp attributes in NetworkResultOptions</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Data_Network_2"><div>
+        <section>
+            <header>
+                <h2>Data/Network#2</h2>
+            </header>
+            <ul>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1137088">Bug 1137088</a>: Move data call related handling out of ril_worker</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1120843">Bug 1120843</a>: HTTP proxy setting should be cleared after data call disconnected</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1054148">Bug 1054148</a>: Clean up MOZ_B2G_RIL in NetworkManager</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=992772">Bug 992772</a>: ResolveHostName with the DNS of the specified NetworkInterface</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=973543">Bug 973543</a>: Host routes removed unexpectedly when data call is shared</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1139805">Bug 1139805</a>: Move NetworkManager.js out of EXTRA_PP_COMPONENTS in moz.build</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1139736">Bug 1139736</a>: Map settings "network.debugging.enabled" to preference</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1115299">Bug 1115299</a>: Add test case for tethering with dun</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1109479">Bug 1109479</a>: Move tethering code out of NetworkManager</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1134644">Bug 1134644</a>: Tethering do not work on Orange F SIM card when "dun" APN is defined</li>
+
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="L_porting"><div>
+        <section>
+            <header>
+                <h2>L porting</h2>
+            </header>
+            <ul>
+                <li>Fix:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1113054">Bug 1113054</a>: Support RIL version 10</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1140259">Bug 1140259</a>: Handle new error codes introduced in RIL version 10</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1142495">Bug 1142495</a>: ICC build error on emulator L</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1139835">Bug 1139835</a>: [Secure Element] RIL error 16 when trying to open multiple logical channels on Nexus 5L</li>
+                </ul></li>
+
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1116434">Bug 1116434</a>: (gonk-L-Wifi) WiFi hotspot L porting</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1104664">Bug 1104664</a>: [gonk-l] Some netutils APIs are not available in newer libsystem</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1121834">Bug 1121834</a>: Dun support on L</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1139063">Bug 1139063</a>: [Secure Element] RILContentHelper.handleIccOpenChannel should notify error if channel not available</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="SMS_MMS"><div>
+        <section>
+            <header>
+                <h2>SMS/MMS</h2>
+            </header>
+            <ul><li>Review:
+                <ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1110050">Bug 1110050</a>: Support RIL_REQUEST_REPORT_SMS_MEMORY_STATUS to inform SMS Device Storage to modem</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1101397">Bug 1101397</a>: Clear up unnecessary checking of "undefined" DOMString attribute</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1138757">Bug 1138757</a>: Incorrect logic to identify the invalid port numbers in CDMA WAP Push</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1130292">Bug 1130292</a>: [Woodduck][HOMO][Orange AMEA] MMS cant be received by the phone</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1143596">Bug 1143596</a>: [B2G][SMS] Update correct test number in Brazil format and rewirte with Promise in test_getthreads.js</li>
+                </ul>
+            </li></ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="MobileConnection"><div>
+        <section>
+            <header>
+                <h2>MobileConnection</h2>
+            </header>
+            <ul>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1116431">Bug 1116431</a>: SIM identifier is displayed inside messages and notifications even if only one SIM inserted</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1131590">Bug 1131590</a>: [Shinano] Unknown network type detected: support DC-HSPA</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1069186">Bug 1069186</a>: Invalid LTE signal level reported</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Emulator"><div>
+        <section>
+            <header>
+                <h2>Emulator</h2>
+            </header>
+            <ul>
+                <li>Emulator-KK:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1116360">Bug 1116360</a>: Enable getCardLockRetryCount on emulator-kk</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1128837">Bug 1128837</a>: [hardware/ril] upgrade master branch to ril version 9</li>
+                </ul></li>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1027546">Bug 1027546</a>: Support call barring</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1133400">Bug 1133400</a>: Fix an implementation defect of emulator 'modem enable|disable <feature>'</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1103731">Bug 1103731</a>: Fail a dial request when failing to automatically hold the existing call</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1001343">Bug 1001343</a>: Telephony test: add test case of dialing a call from STK</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1067629">Bug 1067629</a>: Turn off radio control in System App when running test script for MozMobileConnection.SetRadioEnabled(false)</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Automation"><div>
+        <section>
+            <header>
+                <h2>Automation</h2>
+            </header>
+            <ul>
+                <li>Fix:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1139841">Bug 1139841</a>: Marionette webapi test failure in test_incoming.js, test_outgoing.js, test_incoming_delete.js, ...</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1124732">Bug 1124732</a>: Telephony marionette test, test_outgoing_radio_off.js, fails on emulator-kk</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1143628">Bug 1143628</a>: Increasing the marionette timeout of test_massive_incoming_delete.js and also rewriting test with Promise</li>
+                </ul></li>
+
+                <li>Ongoing:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1075437">Bug 1075437</a>: Support running marionette test script in both OOP and non-OOP</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1081529">Bug 1081529</a>: Un-hide Marionette(Mnw) tests on B2G when they meet visibility standards</li>
+                </ul></li>
+
+                <li>Study:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1093296">Bug 1093296</a>: B2G mochitests/mozrunner child process crash detection no longer working</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Other"><div>
+        <section>
+            <header>
+                <h2>Other</h2>
+            </header>
+            <ul>
+                <li>Ongoing:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1142770">Bug 1142770</a>: Dialer/messaging/settings app not working </li>
+                </ul></li>
+
+                <li>Feedback/Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1120805">Bug 1120805</a>: [B2G][RIL] Remove deprecated xpcshell test functions used in RIL test code</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1123201">Bug 1123201</a>: Pull the BufObject out from ril_worker.js</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1130938">Bug 1130938</a>: Remove the duplicated RilWorkerBuffer</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1072808">Bug 1072808</a>: introduce new interfaces as proxy between Telephony and SystemMessage</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1115495">Bug 1115495</a>: Specific proxy setting for browsing traffic</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1073003">Bug 1073003</a>: Enable warnings-as-errors on B2G</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide shout" id="End"><div>
+        <section>
+            <header>
+                <h2>Thank You!!</h2>
+            </header>
+        </section>
+    </div></div>
+
+    <!--
+        To hide progress bar from entire presentation
+        just remove “progress” element.
+        -->
+    <div class="progress"><div></div></div>
+    <script src="../../scripts/script.js"></script>
+    <!-- Copyright © 2010–2012 EdgarChen — mozilla.com -->
+</body>
+</html>
