@@ -1,0 +1,300 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <title>NetworkManager slides</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1274, user-scalable=no">
+    <link rel="stylesheet" href="../../themes/mozilla/styles/style.css">
+    <!--
+        To apply styles to the certain slides
+        use slide ID to get needed elements
+        -->
+    <style>
+        #Cover h2 {
+            color:#FFF;
+            text-align:center;
+            font-size:40px;
+            }
+        #FitToWidth h2,
+        #FitToHeight h2 {
+            color:#fff;
+            text-align:center;
+            }
+        /* Lists */
+        .slide ol,
+        .slide ul {
+            margin:0 0 45px;
+            counter-reset:list;
+            font-size: 18px
+            }
+            .slide ul ul {
+                margin:0 0 0 38px;
+                }
+            .slide ol ul,
+            .slide ol ol,
+            .slide ul ol {
+                margin:0 0 0 38px;
+                }
+            .slide ol > li:before,
+            .slide ul > li:before {
+                position:absolute;
+                margin-left:-110px;
+                width:100px;
+                color:rgb(62,62,62);
+                text-align:right;
+                }
+            .slide ul > li:before {
+                content:'\2022'; /* bull */
+                line-height:1;
+                font-size:34px;
+                }
+            .slide ol > li:before {
+                counter-increment:list;
+                content:counter(list)'.';
+                }
+            .slide ol ul > li:before,
+            .slide ul ul > li:before {
+                content:'\2023'; /* bull */
+                line-height:1;
+                font-size:34px;
+                }
+            </style>
+</head>
+<body class="list">
+    <header class="caption">
+        <h1>2015 Q2</h1>
+        <p>Edgar Chen &#60;echen@mozilla.com&#62;, 2015/06/09</p>
+    </header>
+
+<!--
+
+    Simply copy the whole block for each slide you want.
+    Special slides get extra classes. Each slide needs an ID
+    to allow for bookmarking and target jumping.
+
+    Images, videos and SVG objects are automatically centred.
+
+    If you add a "cover" class images are taking over the whole
+    screen resized to height. Add a "w" class to resize to width.
+
+ -->
+    <div class="slide" id="Target"><div>
+        <section>
+            <header>
+                <h2>Target</h2>
+            </header>
+            <ul>
+                <li>Study IMS solution</li>
+                <li>New gonk-mock architecture study</li>
+                <li>Network Manager</li>
+            </ul>
+        </section>
+    </div></div>
+
+
+    <div class="slide" id="Marionette-webapi_1"><div>
+        <section>
+            <header>
+                <h2>Marionette-webapi#1</h2>
+            </header>
+            <ul>
+                <li>Fix:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1152272">Bug 1152272</a>: [RIL] emulator's rild suddenly stop processing the request when running test_mobile_set_radio.js.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1155022">Bug 1155022</a>: [RIL] Intermittent script timed out in test_outgoing_radio_off.js due to emulator command, `gsm cancel`, doesn't trigger UNSOLICITED_RESPONSE_CALL_STATE_CHANGED.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1162407">Bug 1162407</a>: Intermittent script timed out in test_replace_short_message_type.js.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1166149">Bug 1166149</a>: Unable to run test_ril_code_quality.py marionette test via ./mach.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1163563">Bug 1163563</a>: [emu-kk][emu-x86-kk] test_dtmf.js failed due to bug 1148047 not landed on kk branch.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1169504">Bug 1169504</a>: Telephony marionette-webapi test, test_outgoing_radio_off.js, failed on emulator-kk.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Marionette-webapi_2"><div>
+        <section>
+            <header>
+                <h2>Marionette-webapi#2</h2>
+            </header>
+            <ul>
+                <li>Fix:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1169585">Bug 1169585</a>: MobileConnection marionette-webapi test, test_mobile_preferred_network_type.js, failed on emulator-kk. <b>(Review?)</b></li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1154215">Bug 1154215</a>: Marionette-webapi test fails due to "TimeoutException: Connection timed out". <b>(Debugging)</b></li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1153709">Bug 1153709</a>: [Marionette-webapi] emulator_cmd doesn't get response until sending a `timed out` error to client. <b>(Debugging)</b></li>
+                </ul></li>
+                <br>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1159622">Bug 1159622</a>: [Icc] Split test_icc_contact.js into smaller tests.</li> 
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="RIL_1"><div>
+        <section>
+            <header>
+                <h2>RIL#1</h2>
+            </header>
+            <ul>
+                <li>Refator:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=991582">Bug 991582</a>: B2G RIL: Handle the result of RIL request in a consistent way.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1169160">Bug 1169160</a>: [MobileConnection] Support more call barring program: all service, outgoing service and incoming service.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1169225">Bug 1169225</a>: [MobileConnectionService] Support setting/getting call waiting on all serviceClass. <b>(Review+)</b></li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1159591">Bug 1159591</a>: [Telephony] Move MMI logic from ril_worker to telephonyService. <b>(Ongoing)</b></li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=831637">Bug 831637</a>: B2G RIL: Each parcel request must has a callback. <b>(Ongoing)</b></li>
+                </ul></li>
+                <br>
+                <li>Fix:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1166174">Bug 1166174</a>: [B2G] GetCellInfoList cannot work.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1152531">Bug 1152531</a>: MMS data connection is never deactivated if MMS fails to send.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="RIL_2"><div>
+        <section>
+            <header>
+                <h2>RIL#2</h2>
+            </header>
+            <ul>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1114938">Bug 1114938</a>: [B2G][ICC] Refactor STK in MozIcc.webidl with IPDL.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1155142">Bug 1155142</a>: [B2G][ICC] Replace RilContext with APIs in IccService.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1162464">Bug 1162464</a>: [B2G][ICC] Move LogicalChannel access from IccProvider to IccService.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1154186">Bug 1154186</a>: [B2G][SMS] Deprecate nsISmsMessenger_new.idl.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1122376">Bug 1122376</a>: [B2G][RIL] Support SIM contact dialling number exceed 20 digits.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=949849">Bug 949849</a>: B2G RIL: update the marionette test script for icc.updateContact.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=962995">Bug 962995</a>: B2G RIL: write ICC UCS2 characters for 0x81 and 0x82 cases for SIM Contact.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1161438">Bug 1161438</a>: [B2G][RIL] Should return the updated contact after icc.updateICCContact succeed.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="RIL_3"><div>
+        <section>
+            <header>
+                <h2>RIL#3</h2>
+            </header>
+            <ul>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1169187">Bug 1169187</a>: [MMS][B2G] Failed to encode the picture message into MMS PDU with specific CU SIM.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1138264">Bug 1138264</a>: [B2G][SMS][MMS] Support new system message of "sms-failed" & "sms-delivery-error" to notify both sent error and the error from delivery report.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1168064">Bug 1168064</a>: [B2G] Got wrong cell info when using GetCellInfoList.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1164248">Bug 1164248</a>: Handling of session/sessionEnded for notifyUssdReceived.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1157018">Bug 1157018</a>: Some SIM lock types that should require PUK instead require PIN.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1062462">Bug 1062462</a>: [Flame] SIM service provider is displayed as unknown in settings.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=999300">Bug 999300</a>: Remove RIL V5 legacy support.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Data_Network_1"><div>
+        <section>
+            <header>
+                <h2>Data/Network#1</h2>
+            </header>
+            <ul>
+                <li>Refactor:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=977474">Bug 977474</a>: [B2G] [NetworkCommandOptions] Combine the prefixLength, prefix, mask and maskLength into one. <b>(Ongoing)</b></li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1123328">Bug 1123328</a>: [NetworkService] Unify the dhcp attributes in NetworkResultOptions. <b>(Ongoing)</b></li>
+                </ul></li>
+                <br>
+                <li>Fix:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1149829">Bug 1149829</a>: nsINetworkInterface is broken on b2g emulator.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Data_Network_2"><div>
+        <section>
+            <header>
+                <h2>Data/Network#2</h2>
+            </header>
+            <ul>
+                <li>Review/Feedback:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1167132">Bug 1167132</a>: [NetworkManager] move network information into a separate interface.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1114901">Bug 1114901</a>: [B2G][RIL] Move data connection related code out of RadioInterfaceLayer.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1126222">Bug 1126222</a>: NetworkManager: fire 'network-connection-state-changed' after internal work is done.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1143984">Bug 1143984</a>: NetworkManager: 'active' should only set for default connections, e.g. wifi or default data.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1130962">Bug 1130962</a>: Remove http proxy pref from NetworkService.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1168021">Bug 1168021</a>: [NetworkManager] consider expanding the nsINetworkInterface parameter in NetworkService interface.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Data_Network_3"><div>
+        <section>
+            <header>
+                <h2>Data/Network#3</h2>
+            </header>
+            <ul>
+                <li>Review/Feedback:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1162865">Bug 1162865</a>: [DataCall] Do not reset data call's linkInfo if it's still needed.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1159132">Bug 1159132</a>: [B2G][RIL]: use dun apn only when config ro.tethering.dun_required is set.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1166170">Bug 1166170</a>: NetworkManager: _addSubnetRoutes error: Invalid argument.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1167054">Bug 1167054</a>: NetworkManager: unregisterNetworkInterface should clear active network.</li>
+                </ul></li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Emulator"><div>
+        <section>
+            <header>
+                <h2>Emulator</h2>
+            </header>
+            <ul>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=906603">Bug 906603</a>: B2G RIL: Support Change Call Barring Password on Emulator.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1164329">Bug 1164329</a>: [B2G][Emulator][v2.2] Enable/Disable Hold feature on emulator.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1159134">Bug 1159134</a>: [B2G][STK] Add Test Coverage for STK related requests.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1168773">Bug 1168773</a>: [B2G] Not able to run emulator-kk on OS X after Bug 1152272 is landed.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Other"><div>
+        <section>
+            <header>
+                <h2>Other</h2>
+            </header>
+            <ul>
+                <li>Mozbase:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1155029">Bug 1155029</a>: [mozrunner] get device log from both main buffer and radio buffer.</li>
+                </ul></li>
+                <li>Travis tests:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1165276">Bug 1165276</a>: b2g-manifest travis tests now is perm-failing due to incorrect b2g bumper configuration.</li>
+                </ul></li>
+                <li>Wifi:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1166274">Bug 1166274</a>: [B2G][Wifi] WifiManager.setStaticIpMode() never triggers success or error event.</li>
+                </ul></li>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=772750">Bug 772750</a>: B2G AGPS: get mobile connection technology from rilcontext.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide shout" id="End"><div>
+        <section>
+            <header>
+                <h2>Thank You!!</h2>
+            </header>
+        </section>
+    </div></div>
+
+    <!--
+        To hide progress bar from entire presentation
+        just remove “progress” element.
+        -->
+    <div class="progress"><div></div></div>
+    <script src="../../scripts/script.js"></script>
+    <!-- Copyright © 2010–2012 EdgarChen — mozilla.com -->
+</body>
+</html>
