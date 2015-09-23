@@ -1,0 +1,289 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <title>NetworkManager slides</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1274, user-scalable=no">
+    <link rel="stylesheet" href="../../themes/mozilla/styles/style.css">
+    <!--
+        To apply styles to the certain slides
+        use slide ID to get needed elements
+        -->
+    <style>
+        #Cover h2 {
+            color:#FFF;
+            text-align:center;
+            font-size:40px;
+            }
+        #FitToWidth h2,
+        #FitToHeight h2 {
+            color:#fff;
+            text-align:center;
+            }
+        /* Lists */
+        .slide ol,
+        .slide ul {
+            margin:0 0 45px;
+            counter-reset:list;
+            font-size: 18px
+            }
+            .slide ul ul {
+                margin:0 0 0 38px;
+                }
+            .slide ol ul,
+            .slide ol ol,
+            .slide ul ol {
+                margin:0 0 0 38px;
+                }
+            .slide ol > li:before,
+            .slide ul > li:before {
+                position:absolute;
+                margin-left:-110px;
+                width:100px;
+                color:rgb(62,62,62);
+                text-align:right;
+                }
+            .slide ul > li:before {
+                content:'\2022'; /* bull */
+                line-height:1;
+                font-size:34px;
+                }
+            .slide ol > li:before {
+                counter-increment:list;
+                content:counter(list)'.';
+                }
+            .slide ol ul > li:before,
+            .slide ul ul > li:before {
+                content:'\2023'; /* bull */
+                line-height:1;
+                font-size:34px;
+                }
+            </style>
+</head>
+<body class="list">
+    <header class="caption">
+        <h1>2015 Q3</h1>
+        <p>Edgar Chen &#60;echen@mozilla.com&#62;, 2015/09/24</p>
+    </header>
+
+<!--
+
+    Simply copy the whole block for each slide you want.
+    Special slides get extra classes. Each slide needs an ID
+    to allow for bookmarking and target jumping.
+
+    Images, videos and SVG objects are automatically centred.
+
+    If you add a "cover" class images are taking over the whole
+    screen resized to height. Add a "w" class to resize to width.
+
+ -->
+
+    <div class="slide" id="Emulator-L"><div>
+        <section>
+            <header>
+                <h2>Emulator-L</h2>
+            </header>
+            <ul>
+                <li>Porting:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1134982">Bug 1134982</a>: [hardware/ril] merge branch for android-5.1.0_r1 (lollipop-mr1) (RIL version 11).</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1163483">Bug 1163483</a>: [emulator-l][emulator-x86-l] reconsider the number of rild enabled.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1186889">Bug 1186889</a>: [emulator-l] Additional rild/rilproxy services can not be launched successfully.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1184418">Bug 1184418</a>: [emulator-l][external/qemu] build standalone emulator host binary and integrate it into full system build.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1171774">Bug 1171774</a>: Include libOpenglRender.so in build for emulator-l.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1179165">Bug 1179165</a>: B2G Emulator-l fails to boot: MOZ_CRASH("Failed to create EGLConfig!\n").</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1181481">Bug 1181481</a>: [emulator-l] b2g crash: Segmentation fault at ../../../gecko/media/libjpeg/simd/jsimd_arm.c:277.</li>
+                </ul></li><br>
+                <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1190296">Bug 1190296</a>: Emulator-l can no be launched normally on taskcluster environment.</li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Emulator-x86-KK_1"><div>
+        <section>
+            <header>
+                <h2>Emulator-x86-KK#1</h2>
+            </header>
+            <ul>
+                <li>Taskcluster:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1192125">Bug 1192125</a>: [TaskCluster] To fix marionette-webapi cannot be launched normally on emu-x86-kk: "error: --test-packages-url option requires an argument".</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1201370">Bug 1201370</a>: Remote cppunit test is unable to launch x86 emulator correctly.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1200928">Bug 1200928</a>: [TaskCluster] Specify the options to use busybox in xpcshell tests.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1188330">Bug 1188330</a>: Use intree mozharness for taskcluster tests.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1181261">Bug 1181261</a>: Remove concept of in-tree mozharness configs; merge existing in-tree configs with normal ones.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1205934">Bug 1205934</a>: Switch Taskcluster Dolphin builds to in-tree mozharness.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Emulator-x86-KK_2"><div>
+        <section>
+            <header>
+                <h2>Emulator-x86-KK#2</h2>
+            </header>
+            <ul>
+                <li>Porting:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1193234">Bug 1193234</a>: [emulator-kk][emulator-x86-kk] reconsider the number of rild enabled.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1196630">Bug 1196630</a>: [Emulator-x86-kk] set mozSettings value "screen.timeout" of the profile-to-test to 0 so the screen never sleeps.</li>
+                </ul></li><br>
+                <li>Other:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1159091">Bug 1159091</a>: gecko: Show emulator-x86-kk as it's own platform.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1197235">Bug 1197235</a>: Add emulator-x86-kk builds to trychooser.</li>
+                </ul></li><br>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Emulator_Generic"><div>
+        <section>
+            <header>
+                <h2>Emulator Generic</h2>
+            </header>
+            <ul>
+                <li>Debug/Fix:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1207039">Bug 1207039</a>: Adb hang when communicating using qemud.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1183578">Bug 1183578</a>: [RIL] Gecko gets no response from rild for pin2 and puk2 operation.</li>
+                </ul></li><br>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1147296">Bug 1147296</a>: [B2G][Emulator] Support CDMA call operations.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1204425">Bug 1204425</a>: [B2G][Emulator] Failed to build emulator-kk / x86-kk on Mac OS X.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=891707">Bug 891707</a>: B2G Emulator: update voice registration after switching radio technology.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=978071">Bug 978071</a>: B2G Emulator: support IPv6.</li>
+                </ul></li><br>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Marionette"><div>
+        <section>
+            <header>
+                <h2>Marionette</h2>
+            </header>
+            <ul>
+                <li>Fix:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1197078">Bug 1197078</a>: Marionette service is unable to parse the data: "[JavaScript Error: "Error parsing incoming packet: {'r (SyntaxError: JSON.parse: expected property name or '}' at line 1 column 2 of the JSON data".</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1203022">Bug 1203022</a>: Marionette-webapi tests busted, JavaScript Error: "TypeError: this.sendResponse is not a function".</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1203037">Bug 1203037</a>: Disable Tethering/NFC marionette-webapi tests on emulator-x86-kk first.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1203425">Bug 1203425</a>: [Cellbroadcast] Split test_cellbroadcast_{gsm|umts}.js into smaller tests.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1203828">Bug 1203828</a>: Marionette test, test_mobile_data_ipv6.js, doesn't really test the v4 or v6 ip addresses.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="RIL_1"><div>
+        <section>
+            <header>
+                <h2>RIL#1</h2>
+            </header>
+            <ul>
+                <li>Refator:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1159591">Bug 1159591</a>: [Telephony] Move MMI logic from ril_worker to telephonyService.</li>
+                </ul></li>
+                <br>
+                <li>Fix/Debug:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1177146">Bug 1177146</a>: [Aries][RIL] Reply from QUERY_AVAILABLE_NETWORKS has more data than expected.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1170215">Bug 1170215</a>: [Aries] Has Poor Connectivity Indicated (LTE) in the Status Bar.</li>
+                </ul></li>
+                <br>
+                <li>2.2r:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1179097">Bug 1179097</a>: Provide WebAPI to setup data connection.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1200932">Bug 1200932</a>: B2G RIL: consider reporting unavailable state or retriggering (non-default) data call.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1193609">Bug 1193609</a>: [IMS] WebIDL: IMS Registration Manager.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="RIL_2"><div>
+        <section>
+            <header>
+                <h2>RIL#2</h2>
+            </header>
+            <ul>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1191205">Bug 1191205</a>: [v2.5] USSD responses not working.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1200134">Bug 1200134</a>: [v2.5] [USSD] Define State Transitions of USSD Session in TelephonyService. (Gecko part of Bug 1198676).</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1174998">Bug 1174998</a>: Configure MTU from apn settings or the one reported from modem.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=999300">Bug 999300</a>: Remove RIL V5 legacy support.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1172873">Bug 1172873</a>: [B2G][STK] Suppress the notification of STK proactive command if there is no Icc detected.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1182770">Bug 1182770</a>: MMS somtimes gets reported as in error when it has been sent.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1188242">Bug 1188242</a>: [B2G][ICC] Se correct RESPATH for IccService in B2G installer.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1195273">Bug 1195273</a>: MOZ_ASSERT(!mMightHaveUnreportedJSException) via IccContactToMozContact when importing contacts from SIM card.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="RIL_3"><div>
+        <section>
+            <header>
+                <h2>RIL#3</h2>
+            </header>
+            <ul>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1122376">Bug 1122376</a>: [B2G][RIL] Support SIM contact dialling number exceed 20 digits.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1189884">Bug 1189884</a>: [Contacts] Sometimes Contacts cannot be imported from SIM card.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1194149">Bug 1194149</a>: It only can export 50~110 contacts from device to China Unicom USIM card(128K)/China Mobile SIM card(128K).</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1114937">Bug 1114937</a>: [B2G][ICC] Refactor Icc Contacts in MozIcc.webidl with IPDL.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="Network"><div>
+        <section>
+            <header>
+                <h2>Network</h2>
+            </header>
+            <ul>
+                <li>Review:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1167132">Bug 1167132</a>: [NetworkManager] move network information into a separate interface.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1175817">Bug 1175817</a>: [NetworkManager] remove old default routes explicitly.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1197667">Bug 1197667</a>: B2G NetworkManager: 'allNetworkInfo' implementation missing.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1173671">Bug 1173671</a>: [Aries] OTA updates (and everything else) downloaded using cell network even though I'm connected to WiFi, after I've turned WiFi off and on again.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide" id="WebExtension"><div>
+        <section>
+            <header>
+                <h2>WebExtension</h2>
+            </header>
+            <ul>
+                <li>Study/Sharing:<ul>
+                    <li><a href="https://taiwan.etherpad.mozilla.org/1285">https://taiwan.etherpad.mozilla.org/1285</a></li>
+                    <li><a href="https://docs.google.com/presentation/d/1LscJGUTO74hP_6tEf6I6_nsAR24xSu9WhHUKk182eaE/edit#slide=id.p">https://docs.google.com/presentation/d/1LscJGUTO74hP_6tEf6I6_nsAR24xSu9WhHUKk182eaE/edit#slide=id.p</a></li>
+                    <li><a href="http://edgarchen.github.io/HTML_slides/stackedit/Add-on.html">http://edgarchen.github.io/HTML_slides/stackedit/Add-on.html</a></li>
+                    
+
+                </ul></li><br>
+                <li>Fix:<ul>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1205221">Bug 1205221</a>: chrome.tabs.onUpdate event doesn't be sent when updating tab's attribute.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1178856">Bug 1178856</a>: Expose add-ons API using `navigator.hasFeature()`.</li>
+                    <li><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=1202532">Bug 1202532</a>: The callback argument of windows.update() is optional.</li>
+                </ul></li>
+            </ul>
+        </section>
+    </div></div>
+
+    <div class="slide shout" id="End"><div>
+        <section>
+            <header>
+                <h2>Thank You!!</h2>
+            </header>
+        </section>
+    </div></div>
+
+    <!--
+        To hide progress bar from entire presentation
+        just remove “progress” element.
+        -->
+    <div class="progress"><div></div></div>
+    <script src="../../scripts/script.js"></script>
+    <!-- Copyright © 2010–2012 EdgarChen — mozilla.com -->
+</body>
+</html>
